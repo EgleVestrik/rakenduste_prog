@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <script>
+      function sayHi() {
+        console.log("hi");
+      }
+
+      function printOne() {
+        let ele = document.getElementById("output");
+        ele.innerHTML = "one";
+			}
+
+			function handleInputChange(event){
+					console.log(event.target.value)
+			}
+
+			//map, filter, reduce
+			//kuidas neid kasutada ja kuidas aru saad
+
+
+      //MAP    -- The Map object holds key-value pairs and remembers the original insertion order of the keys. 
+      //Any value (both objects and primitive values) may be used as either a key or a value.
+			
+      const map1 = new Map();
+
+      map1.set('Eesti', Tallinn);
+      map1.set('Soome', Helsinki);
+      map1.set('Läti', Riia);
+
+      console.log(map1.get('Eesti'));
+      // expected output: Tallinn
+
+      console.log(map1.get(Tallinn));
+      // expected output: Eesti
+
+      map1.set('Eesti', Tartu);
+
+      console.log(map1.get('Eesti'));
+      // expected output: Tartu
+
+      console.log(map1.size);
+      // expected output: 3
+
+      map1.delete('Soome');
+
+      console.log(map1.size);
+      // expected output: 2
+
+
+      //Filter   --The filter() method creates a shallow copy of a portion of a given array, 
+      //filtered down to just the elements from the given array that pass the test implemented by the provided function.
+
+      const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+      const result = words.filter(word => word.length > 6);
+      //sõnad mis on pikemad kui 6 märki
+
+      console.log(result);
+      // expected output: Array ["exuberant", "destruction", "present"]
+
+
+      //Reduced  --The reduce() method executes a user-supplied "reducer" callback function on each element of the array, 
+      //in order, passing in the return value from the calculation on the preceding element. 
+      //The final result of running the reducer across all elements of the array is a single value.
+      const array1 = [1, 2, 3, 4];
+
+      // 0 + 1 + 2 + 3 + 4
+      const initialValue = 0; //algne value
+      const sumWithInitial = array1.reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+        initialValue
+      );
+
+      console.log(sumWithInitial);
+      //annab 10
+			
+    </script>
+    <button onclick="printOne()">One</button>
+    <button>Two</button>
+		<div id="output"></div>
+		<input onkeyup="handleInputChange(event)" type="text"></input>
+  </body>
+</html>
